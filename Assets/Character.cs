@@ -4,6 +4,7 @@ using System.Collections;
 public class Character : MonoBehaviour {
 
 	private float speed = 0.8f;
+	private float Jump = 1.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,8 @@ public class Character : MonoBehaviour {
 		} 
 
 		if (Input.GetKey(KeyCode.W)) { 
-			transform.Translate (Vector3.up * speed * Time.deltaTime);
+
+			rigidbody2D.AddForce(Vector3.up * Jump);
 		} 
 	
 	}
