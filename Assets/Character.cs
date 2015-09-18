@@ -37,5 +37,10 @@ public class Character : MonoBehaviour {
 		} else
 			Debug.Log ("Nem entrou");
 
+		if (colisor.gameObject.tag == "Triangle") {
+			Application.LoadLevel("EmConstruçao");  
+			
+		} 
+
 	}
 }
