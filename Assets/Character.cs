@@ -3,30 +3,34 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
 
-	private float speed = 0.8f;
-	private float Jump = 1.5f;
-
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	public float speed = 1f;
+	public float jump = 0;
 
-		if (Input.GetKey(KeyCode.D)) { 
+	
+	void Update () 
+	{
+		
+
+		if(Input.GetKey(KeyCode.D))
+		{
 			transform.Translate (Vector3.left * speed * Time.deltaTime);
-		}  
+			
+		}
 
-		if (Input.GetKey(KeyCode.A)) { 
+		
+		if(Input.GetKey(KeyCode.A))
+		{
 			transform.Translate (Vector3.right * speed * Time.deltaTime);
-		} 
-
-		if (Input.GetKey(KeyCode.W)) { 
-
-			rigidbody2D.AddForce(Vector3.up * Jump);
-		} 
-	
+		}
+		
+		if((Input.GetKey(KeyCode.W) && jump <= 0)) 
+		{
+			GetComponent<Rigidbody2D>().velocity = new Vector3(0, 20, 0);
+			jump += 1;
+		}
+		
+		
 	}
 
 	void OnCollisionEnter2D (Collision2D colisor)
@@ -41,6 +45,11 @@ public class Character : MonoBehaviour {
 			Application.LoadLevel("EmConstruçao");  
 			
 		} 
+
+		if (colisor.gameObject.tag != "Parede")
+		{
+			jump = 0;
+		}
 
 	}
 }
