@@ -6,6 +6,7 @@ public class Character : MonoBehaviour {
 	
 	public float speed = 1f;
 	public float jump = 0;
+	public bool hasKey = false;
 
 	
 	void Update () 
@@ -29,17 +30,14 @@ public class Character : MonoBehaviour {
 			GetComponent<Rigidbody2D>().velocity = new Vector3(0, 20, 0);
 			jump += 1;
 		}
-		
+
+		 
 		
 	}
 
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
-		if (colisor.gameObject.tag == "Plataform") {
-			Debug.Log ("Entrou"); 
-		
-		} else
-			Debug.Log ("Nem entrou");
+
 
 		if (colisor.gameObject.tag == "Triangle") {
 			Application.LoadLevel("EmConstruçao");  
@@ -50,6 +48,8 @@ public class Character : MonoBehaviour {
 		{
 			jump = 0;
 		}
+
+
 
 	}
 }
