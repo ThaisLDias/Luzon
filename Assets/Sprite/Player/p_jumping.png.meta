@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 4227bc159ef7c2b45b0c62df45670919
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: p_jumping_0
+    21300002: p_jumping_1
+    21300004: p_jumping_2
+    21300006: p_jumping_3
+    21300008: p_jumping_4
+    21300010: p_jumping_5
+    21300012: p_jumping_6
+    21300014: p_jumping_7
+    21300016: p_jumping_8
+    21300018: p_jumping_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 250
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: p_jumping_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 719
+        width: 292
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_1
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 717
+        width: 302
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_2
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 715
+        width: 314
+        height: 676
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_3
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 713
+        width: 324
+        height: 677
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_4
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 711
+        width: 334
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_5
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 6
+        width: 342
+        height: 679
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 4
+        width: 349
+        height: 682
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_7
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 3
+        width: 353
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_8
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 2
+        width: 357
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_jumping_9
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 1
+        width: 359
+        height: 687
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

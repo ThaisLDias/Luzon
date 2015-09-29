@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: e4e8ddec7432bfc40b29f06bc8009abe
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: p_dying_0
+    21300002: p_dying_1
+    21300004: p_dying_2
+    21300006: p_dying_3
+    21300008: p_dying_4
+    21300010: p_dying_5
+    21300012: p_dying_6
+    21300014: p_dying_7
+    21300016: p_dying_8
+    21300018: p_dying_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 250
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: p_dying_0
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 749
+        width: 293
+        height: 673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_1
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 765
+        width: 369
+        height: 684
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_2
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 783
+        width: 442
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_3
+      rect:
+        serializedVersion: 2
+        x: 2388
+        y: 804
+        width: 504
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_4
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 827
+        width: 557
+        height: 652
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_5
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 102
+        width: 601
+        height: 610
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_6
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 85
+        width: 648
+        height: 558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_7
+      rect:
+        serializedVersion: 2
+        x: 1481
+        y: 67
+        width: 679
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_8
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 53
+        width: 695
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: p_dying_9
+      rect:
+        serializedVersion: 2
+        x: 2913
+        y: 37
+        width: 684
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
