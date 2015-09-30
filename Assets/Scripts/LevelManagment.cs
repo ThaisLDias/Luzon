@@ -7,6 +7,7 @@ public class LevelManagment : MonoBehaviour {
 
 	public void levelManager () {
 		Application.LoadLevel (level); 	
+<<<<<<< HEAD
 	
 	}
 
@@ -18,4 +19,7 @@ public class LevelManagment : MonoBehaviour {
 		} 
 
 	} 
+=======
+	}
+>>>>>>> origin/master
 }

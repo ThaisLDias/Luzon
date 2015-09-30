@@ -36,6 +36,10 @@ public class Character : MonoBehaviour {
 	
 	void Update () 
 	{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 		animWalking = false;
 
 		if (Input.GetKey (KeyCode.D)) {
@@ -76,11 +80,14 @@ public class Character : MonoBehaviour {
 
 		}
 
+<<<<<<< HEAD
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit();
 			
 		} 
 
+=======
+>>>>>>> origin/master
 		AnimUpdate ();	
 	}
 
@@ -91,6 +98,50 @@ public class Character : MonoBehaviour {
 		}
 	}
 	
+<<<<<<< HEAD
+=======
+=======
+
+		if(Input.GetKey(KeyCode.D))
+		{
+			if(Application.loadedLevel != 0){
+				transform.Translate (Vector3.right * speed * Time.deltaTime);
+			} else{
+				transform.Translate (Vector3.left * speed * Time.deltaTime);
+			}
+			animWalking = true;
+		}
+		
+		
+		if(Input.GetKey(KeyCode.A))
+		{
+			if(Application.loadedLevel != 0){
+				transform.Translate (Vector3.left * speed * Time.deltaTime);
+			} else{
+				transform.Translate (Vector3.right * speed * Time.deltaTime);
+			}
+			animWalking = true;
+		}
+
+		else animWalking = false;
+
+
+		if((Input.GetKey(KeyCode.W) && jump <= 0)) 
+		{
+			rb.velocity = new Vector3(0, 20, 0);
+			jump += 1;
+			animJump+=1;
+			StartCoroutine(basicTimer());
+			animJump+=1;	
+
+		}
+	
+		AnimUpdate();	
+
+	}
+
+>>>>>>> origin/master
+>>>>>>> origin/master
 	IEnumerator basicTimer(){
 
 		yield return new WaitForSeconds(0.000000001f);
@@ -107,15 +158,26 @@ public class Character : MonoBehaviour {
 			
 		} 
 
+<<<<<<< HEAD
 		if (colisor.gameObject.tag != "Parede" && colisor.gameObject.tag != "Key")
+=======
+<<<<<<< HEAD
+		if (colisor.gameObject.tag != "Parede" && colisor.gameObject.tag != "Key")
+=======
+		if (colisor.gameObject.tag != "Parede")
+>>>>>>> origin/master
+>>>>>>> origin/master
 		{
 			jump = 0;
 			animJump = 0;
 		}
 	}
+<<<<<<< HEAD
 
 	void OnApplicationQuit() 
 	{
 		PlayerPrefs.DeleteAll ();
 	} 
+=======
+>>>>>>> origin/master
 }
