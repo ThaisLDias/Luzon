@@ -6,6 +6,7 @@ public class LevelPass : MonoBehaviour {
 	private int index;
 
 	void Start(){
+<<<<<<< HEAD
 
 		index = PlayerPrefs.GetInt ("lastLevel") + 1;
 
@@ -13,6 +14,9 @@ public class LevelPass : MonoBehaviour {
 			index = 0;
 		}
 
+=======
+		index = PlayerPrefs.GetInt ("lastLevel") + 1;
+>>>>>>> origin/master
 		StartCoroutine (pass());
 	}
 
