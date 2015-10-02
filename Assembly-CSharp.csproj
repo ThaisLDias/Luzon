@@ -49,15 +49,10 @@
      <Compile Include="Assets\Scripts\Character.cs" />
      <Compile Include="Assets\Scripts\Door.cs" />
      <Compile Include="Assets\Scripts\Key.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\Scripts\LevelManagment.cs" />
-=======
-<<<<<<< HEAD
-     <Compile Include="Assets\Scripts\LevelManagment.cs" />
-=======
->>>>>>> origin/master
->>>>>>> origin/master
      <Compile Include="Assets\Scripts\LevelPass.cs" />
+     <Compile Include="Assets\Scripts\PhpConnect.cs" />
+     <Compile Include="Assets\Scripts\ShowHigh.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>

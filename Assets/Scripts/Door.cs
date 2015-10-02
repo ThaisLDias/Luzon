@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Door : MonoBehaviour {
 
+    void Start()
+    {
+        if(Application.loadedLevel == 2)PlayerPrefs.SetInt("mortes", 200);
+    }
+
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
 

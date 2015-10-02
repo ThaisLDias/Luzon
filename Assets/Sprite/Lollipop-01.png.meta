@@ -24,15 +24,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-<<<<<<< HEAD
     filterMode: 1
-=======
-<<<<<<< HEAD
-    filterMode: 1
-=======
-    filterMode: -1
->>>>>>> origin/master
->>>>>>> origin/master
     aniso: 16
     mipBias: -1
     wrapMode: 1
