@@ -84,11 +84,7 @@ public class Character : MonoBehaviour {
 		} 
 
 		
-		/*if (Application.loadedLevel == 7) {
-			
-			audio.Play();
-			Debug.Log("Entrou");
-		}*/
+	
 
 		AnimUpdate ();
         Debug.Log(PlayerPrefs.GetInt("mortes"));
@@ -104,11 +100,6 @@ public class Character : MonoBehaviour {
 
 
 
-		
-
-	
-
-
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
 
@@ -116,10 +107,13 @@ public class Character : MonoBehaviour {
 
 			dead = true;
             PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") - 1);
-            Application.LoadLevel(Application.loadedLevel);
+			StartCoroutine(wait());
+            //Application.LoadLevel(Application.loadedLevel);
             
 			
 		} 
+
+
 
 		if (colisor.gameObject.tag != "MainCamera" && colisor.gameObject.tag != "Key")
 		{
@@ -127,6 +121,14 @@ public class Character : MonoBehaviour {
 			animJump = 0;
 		}
 	}
+
+	IEnumerator wait() 
+	{
+		yield return new WaitForSeconds(0.9f);
+		Application.LoadLevel(Application.loadedLevel);
+	} 
+
+
 
 	void OnApplicationQuit() 
 	{
