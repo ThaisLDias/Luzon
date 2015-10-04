@@ -7,10 +7,7 @@ public class Character : MonoBehaviour {
 	public float speed = 1f;
 	public float jump = 0;
 	public bool hasKey = false;
-<<<<<<< HEAD
 	public GameObject c;
-=======
->>>>>>> origin/master
 
 	#region AnimationBools
 
@@ -23,7 +20,6 @@ public class Character : MonoBehaviour {
 	Animator anim;
 	Rigidbody2D rb;
 
-<<<<<<< HEAD
 
 	
 	void Start(){
@@ -33,13 +29,6 @@ public class Character : MonoBehaviour {
 
 
 
-=======
-	void Start(){
-
-		anim = GetComponent<Animator>();
-		rb = GetComponent<Rigidbody2D>();
-
->>>>>>> origin/master
 	}
 
 	void AnimUpdate(){
@@ -87,12 +76,6 @@ public class Character : MonoBehaviour {
 			rb.velocity = new Vector3 (0, 20, 0);
 			jump += 1;
 			animJump += 1;
-<<<<<<< HEAD
-=======
-			StartCoroutine (basicTimer ());
-			animJump += 1;	
-
->>>>>>> origin/master
 		}
 
 		if (Input.GetKey (KeyCode.Escape)) {
@@ -100,7 +83,6 @@ public class Character : MonoBehaviour {
 			
 		} 
 
-<<<<<<< HEAD
 		
 		/*if (Application.loadedLevel == 7) {
 			
@@ -108,8 +90,6 @@ public class Character : MonoBehaviour {
 			Debug.Log("Entrou");
 		}*/
 
-=======
->>>>>>> origin/master
 		AnimUpdate ();
         Debug.Log(PlayerPrefs.GetInt("mortes"));
     }
@@ -118,7 +98,6 @@ public class Character : MonoBehaviour {
 		if (Application.loadedLevel == 7) {
 			Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			gameObject.transform.position = position;
-<<<<<<< HEAD
 
 		}
 	}
@@ -129,16 +108,6 @@ public class Character : MonoBehaviour {
 
 	
 
-=======
-		}
-	}
-	
-	IEnumerator basicTimer(){
-
-		yield return new WaitForSeconds(0.000000001f);
-
-	}
->>>>>>> origin/master
 
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
@@ -152,11 +121,7 @@ public class Character : MonoBehaviour {
 			
 		} 
 
-<<<<<<< HEAD
 		if (colisor.gameObject.tag != "MainCamera" && colisor.gameObject.tag != "Key")
-=======
-		if (colisor.gameObject.tag != "Parede" && colisor.gameObject.tag != "Key")
->>>>>>> origin/master
 		{
 			jump = 0;
 			animJump = 0;
