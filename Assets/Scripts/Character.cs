@@ -7,6 +7,7 @@ public class Character : MonoBehaviour {
 	public float speed = 1f;
 	public float jump = 0;
 	public bool hasKey = false;
+	public GameObject c;
 
 	#region AnimationBools
 
@@ -19,10 +20,14 @@ public class Character : MonoBehaviour {
 	Animator anim;
 	Rigidbody2D rb;
 
-	void Start(){
 
+	
+	void Start(){
+		
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
+
+
 
 	}
 
@@ -71,15 +76,15 @@ public class Character : MonoBehaviour {
 			rb.velocity = new Vector3 (0, 20, 0);
 			jump += 1;
 			animJump += 1;
-			StartCoroutine (basicTimer ());
-			animJump += 1;	
-
 		}
 
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit();
 			
 		} 
+
+		
+	
 
 		AnimUpdate ();
         Debug.Log(PlayerPrefs.GetInt("mortes"));
@@ -89,33 +94,36 @@ public class Character : MonoBehaviour {
 		if (Application.loadedLevel == 7) {
 			Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			gameObject.transform.position = position;
+
 		}
 	}
-	
-	IEnumerator basicTimer(){
 
-		yield return new WaitForSeconds(0.000000001f);
 
-	}
 
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
 
 		if (colisor.gameObject.tag == "Triangle") {
 
-			dead = true;
+			Application.LoadLevel(Application.loadedLevel);
             PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") - 1);
-            Application.LoadLevel(Application.loadedLevel);
+
+            //Application.LoadLevel(Application.loadedLevel);
             
 			
 		} 
 
-		if (colisor.gameObject.tag != "Parede" && colisor.gameObject.tag != "Key")
+
+
+		if (colisor.gameObject.tag != "MainCamera" && colisor.gameObject.tag != "Key")
 		{
 			jump = 0;
 			animJump = 0;
 		}
 	}
+
+
+
 
 	void OnApplicationQuit() 
 	{

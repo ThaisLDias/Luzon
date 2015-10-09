@@ -1,8 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Character.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character.cs">
     <Files>
-      <File FileName="Assets\Character.cs" Line="7" Column="24" />
+      <File FileName="..\..\Downloads\Smoking-master\Assets\Scripts\IAS\IAManager.cs" Line="62" Column="5" />
+      <File FileName="..\..\Downloads\Smoking-master\Assets\Scripts\Cigarette.cs" Line="1" Column="1" />
+      <File FileName="..\..\Downloads\Smoking-master\Assets\Scripts\Davson.cs" Line="1" Column="1" />
+      <File FileName="..\..\Downloads\Smoking-master\Assets\Scripts\Smoke\Smoke.cs" Line="1" Column="1" />
+      <File FileName="..\..\Downloads\Smoking-master\Assets\Scripts\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character.cs" Line="108" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
