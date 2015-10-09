@@ -108,7 +108,7 @@ public class Character : MonoBehaviour {
 			Application.LoadLevel(Application.loadedLevel);
             PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") - 1);
 
-            //Application.LoadLevel(Application.loadedLevel);
+			StartCoroutine(wait());
             
 			
 		} 
@@ -122,7 +122,11 @@ public class Character : MonoBehaviour {
 		}
 	}
 
-
+	IEnumerator wait() 
+	{
+		yield return new WaitForSeconds(0.9f);
+		Application.LoadLevel(Application.loadedLevel);
+	} 
 
 
 	void OnApplicationQuit() 
