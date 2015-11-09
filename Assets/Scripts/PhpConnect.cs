@@ -5,14 +5,21 @@ using UnityEngine.UI;
 {
 
     public string myUrl = "http://lpaulobos.16mb.com/script.php"; 
-    public string textinho;
+    public string nome;
 
+
+	void Start()
+	{
+		StartCoroutine(GuiRect());
+	}
+    
     public void ButtonClick()
     {
-        StartCoroutine(SendHighScore(textinho, PlayerPrefs.GetInt("mortes")));
-        GameObject.Find("Text4").GetComponent<ShowHigh>().txt = textinho + ":  " +PlayerPrefs.GetInt("mortes").ToString();
+        StartCoroutine(SendHighScore(nome, PlayerPrefs.GetInt("mortes")));
+        GameObject.Find("Text4").GetComponent<ShowHigh>().txt = nome + ":  " + PlayerPrefs.GetInt("mortes").ToString();
         PlayerPrefs.SetInt("mortes", 200);
-        textinho = "Your Name...";
+        nome = "Your Name...";
+		GameObject.Find("ScoreText").GetComponent<ShowHigh>().GetScore();
     }
 
     IEnumerator SendHighScore(string _player, int _score)
@@ -27,13 +34,20 @@ using UnityEngine.UI;
         if (www.error != null)
         {
             Debug.Log(www.text);
-            GameObject.Find("Text4").GetComponent<ShowHigh>().txt = _player + ": " + _score;
         }
         else
             Debug.Log(www.text);
     }
     void Update()
     {
-        textinho = GameObject.Find("Text").GetComponent<Text>().text;
+        nome = GameObject.Find("Text").GetComponent<Text>().text;
     }
+	
+	IEnumerator GuiRect()
+	{	
+		yield return new  WaitForSeconds(0.5f);
+		var a = new Rect(0,0,Screen.width/2,Screen.height/2),"Successful inserted score!");
+		yield return new  WaitForSeconds(0.5f);
+		Destroy(a);
+	}
 }

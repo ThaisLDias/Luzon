@@ -4,15 +4,34 @@ using UnityEngine.UI;
 
 public class ShowHigh : MonoBehaviour {
 
-    public Text text4;
+    public Text text;
     public string txt;
+    public string link;
+	
+	void Awake()
+	{
+		Network.proxyIP = "10.10.10.1";
+		Network.proxyPort = 3128;
+		Network.useProxy = true;
+	}
     void Start()
     {
-        text4 = GetComponent<Text>();
+        text = GetComponent<Text>();
         txt = "Without Highscores";
-    }
-    void Update()
+		link = "http://lpaulobos.16mb.com/getHighScore.php";
+		StartCoroutine(GetHighScore(link)); 
+	}
+	public IEnumerator GetHighScore(string url)
     {
-        text4.text = txt;
+		WWW www = new WWW(url);
+		yield return www;
+		 
+		text.text = www.text.Replace("<br>", "                   ");	
+		
     }
+    public void GetScore()
+    {
+		StartCoroutine(GetHighScore(link)); 
+    }
+	
 }
