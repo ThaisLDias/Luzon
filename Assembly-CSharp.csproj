@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{A94003AE-8097-EE7D-D47D-43870B8C0144}</ProjectGuid>
+	<ProjectGuid>{E7CE85F7-37CF-9C5F-158A-DFCA0D602638}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -51,8 +51,9 @@
      <Compile Include="Assets\Scripts\Key.cs" />
      <Compile Include="Assets\Scripts\LevelManagment.cs" />
      <Compile Include="Assets\Scripts\LevelPass.cs" />
-     <Compile Include="Assets\Scripts\PhpConnect.cs" />
+     <Compile Include="Assets\Scripts\PlayerDelete.cs" />
      <Compile Include="Assets\Scripts\ShowHigh.cs" />
+     <Compile Include="Assets\Scripts\UIScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>

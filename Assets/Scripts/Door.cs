@@ -5,7 +5,7 @@ public class Door : MonoBehaviour {
 
     void Start()
     {
-        if(Application.loadedLevel == 2)PlayerPrefs.SetInt("mortes", 200);
+        
     }
 
 	void OnCollisionEnter2D (Collision2D colisor)
@@ -14,6 +14,9 @@ public class Door : MonoBehaviour {
 		if (colisor.gameObject.tag == "Player" && colisor.gameObject.GetComponent<Character>().hasKey) {
 			PlayerPrefs.SetInt("lastLevel", Application.loadedLevel);
 			Application.LoadLevel("LevelComplete");
+			PlayerPrefs.SetInt("globalDeaths", PlayerPrefs.GetInt("globalDeaths") + PlayerPrefs.GetInt("mortes"));
+			PlayerPrefs.DeleteKey("mortes");
+			Debug.Log (PlayerPrefs.GetInt("globalDeaths"));
 		} 
 	
 	}

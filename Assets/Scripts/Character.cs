@@ -26,9 +26,6 @@ public class Character : MonoBehaviour {
 		
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
-
-
-
 	}
 
 	void AnimUpdate(){
@@ -87,7 +84,6 @@ public class Character : MonoBehaviour {
 	
 
 		AnimUpdate ();
-        Debug.Log(PlayerPrefs.GetInt("mortes"));
     }
 
 	void OnMouseDrag() {
@@ -106,11 +102,8 @@ public class Character : MonoBehaviour {
 		if (colisor.gameObject.tag == "Triangle") {
 
 			Application.LoadLevel(Application.loadedLevel);
-            PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") - 1);
-
+            PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") + 1);
 			StartCoroutine(wait());
-            
-			
 		} 
 
 
@@ -131,6 +124,6 @@ public class Character : MonoBehaviour {
 
 	void OnApplicationQuit() 
 	{
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 	} 
 }
