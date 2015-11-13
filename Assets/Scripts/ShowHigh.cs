@@ -11,7 +11,7 @@ public class ShowHigh : MonoBehaviour {
 	
 	void Awake()
 	{
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		/*Network.proxyIP = "10.10.10.1";
 		Network.proxyPort = 3128;
 		Network.useProxy = true;*/
