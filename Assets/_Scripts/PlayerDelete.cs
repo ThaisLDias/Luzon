@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerDelete : MonoBehaviour {
+public class PlayerDelete:MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

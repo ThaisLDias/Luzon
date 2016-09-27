@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class Character:MonoBehaviour {
 
 	
 	public float speed = 1f;

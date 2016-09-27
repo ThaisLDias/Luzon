@@ -32,16 +32,18 @@ public class Player : MonoBehaviour {
 
 	float lastFacingDir = 1;
 
+	/**/
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
+	}
+	void GravityCalculator(){
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-
 	}
-
-	void Update() {
+	void Move(){
+		#region FacingDirection
 		if (this.input.x != 0) {
 			this.transform.localScale = new Vector3 (input.x, 1, 1);
 			this.lastFacingDir = input.x;
@@ -49,9 +51,11 @@ public class Player : MonoBehaviour {
 			this.transform.localScale = new Vector3 (this.lastFacingDir, 1, 1);
 
 		}
+		#endregion
 
-		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-
+		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));	
+	}
+	void WallJump(){
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
 		float targetVelocityX = input.x * moveSpeed;
@@ -117,4 +121,13 @@ public class Player : MonoBehaviour {
 		}
 
 	}
+
+
+	void Update() {
+		GravityCalculator ();
+		Move ();
+		WallJump ();
+
+	}
+
 }

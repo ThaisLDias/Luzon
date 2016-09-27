@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\New Physics\PlayerManager.cs">
+    <Files>
+      <File FileName="Assets\_Scripts\New Physics\PlayerManager.cs" Line="9" Column="15" />
+      <File FileName="Assets\_Scripts\New Physics\Player.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Door.cs" Line="1" Column="1" />
+      <File FileName="Assets\_Scripts\Character.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
