@@ -40,6 +40,9 @@ public class Character:MonoBehaviour {
 	{
 		animWalking = false;
 
+
+
+		//Resolvido
 		if (Input.GetKey (KeyCode.D)) {
 			if (Application.loadedLevel != 3) {
 				transform.Translate (Vector3.right * speed * Time.deltaTime);
@@ -51,7 +54,7 @@ public class Character:MonoBehaviour {
 				animWalking = true;
 		}
 		
-		
+		//Resolvido
 		if (Input.GetKey (KeyCode.A)) {
 			if (Application.loadedLevel != 3) {
 				transform.Translate (Vector3.left * speed * Time.deltaTime);
@@ -62,6 +65,15 @@ public class Character:MonoBehaviour {
 				animWalking = true;
 		}
 
+
+
+
+
+
+
+
+
+		//Resolvido
 		if (Input.GetKey (KeyCode.W) && Application.loadedLevel == 9) {
 			transform.Translate (Vector3.up * speed * Time.deltaTime);
 		} else if (Input.GetKey (KeyCode.S) && Application.loadedLevel == 9) {
@@ -69,12 +81,14 @@ public class Character:MonoBehaviour {
 		}
 		
 
+		//Resolvido
 		if (Input.GetKey (KeyCode.W) && jump <= 0 && Application.loadedLevel != 9) {
 			rb.velocity = new Vector3 (0, 20, 0);
 			jump += 1;
 			animJump += 1;
 		}
 
+		//Resolvido
 		if (Input.GetKey (KeyCode.Escape)) {
 			Application.Quit();
 			
@@ -99,6 +113,7 @@ public class Character:MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D colisor)
 	{
 
+		//resolvido
 		if (colisor.gameObject.tag == "Triangle") {
 
 			Application.LoadLevel(Application.loadedLevel);
@@ -115,6 +130,8 @@ public class Character:MonoBehaviour {
 		}
 	}
 
+
+	//Resolvido
 	IEnumerator wait() 
 	{
 		yield return new WaitForSeconds(0.9f);

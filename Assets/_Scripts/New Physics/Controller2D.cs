@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Controller2D : RaycastController {
 
+
+	public RaycastHit2D horizontalLastHit;
+	public RaycastHit2D verticalLastHit;
+
 	float maxClimbAngle = 80;
 	float maxDescendAngle = 80;
 
@@ -63,11 +67,13 @@ public class Controller2D : RaycastController {
 
 			if (hit) {
 
+				horizontalLastHit = hit;
+
 				if (hit.distance == 0) {
 					continue;
 				}
 
-				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+				float slopeAngle = Vector2.Angle (hit.normal, Vector2.up);
 
 				if (i == 0 && slopeAngle <= maxClimbAngle) {
 					if (collisions.descendingSlope) {
@@ -76,10 +82,10 @@ public class Controller2D : RaycastController {
 					}
 					float distanceToSlopeStart = 0;
 					if (slopeAngle != collisions.slopeAngleOld) {
-						distanceToSlopeStart = hit.distance-skinWidth;
+						distanceToSlopeStart = hit.distance - skinWidth;
 						velocity.x -= distanceToSlopeStart * directionX;
 					}
-					ClimbSlope(ref velocity, slopeAngle);
+					ClimbSlope (ref velocity, slopeAngle);
 					velocity.x += distanceToSlopeStart * directionX;
 				}
 
@@ -88,13 +94,17 @@ public class Controller2D : RaycastController {
 					rayLength = hit.distance;
 
 					if (collisions.climbingSlope) {
-						velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
+						velocity.y = Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs (velocity.x);
 					}
 
 					collisions.left = directionX == -1;
 					collisions.right = directionX == 1;
 				}
+			} else {
+				hit.Equals(null);
 			}
+
+		
 		}
 	}
 
@@ -111,6 +121,8 @@ public class Controller2D : RaycastController {
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 
 			if (hit) {
+				verticalLastHit = hit;
+
 				if (hit.collider.tag == "Through") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -120,20 +132,22 @@ public class Controller2D : RaycastController {
 					}
 					if (playerInput.y == -1) {
 						collisions.fallingThroughPlatform = true;
-						Invoke("ResetFallingThroughPlatform",.5f);
+						Invoke ("ResetFallingThroughPlatform", .5f);
 						continue;
 					}
-				}
+				} 
 
 				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 
 				if (collisions.climbingSlope) {
-					velocity.x = velocity.y / Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
+					velocity.x = velocity.y / Mathf.Tan (collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Sign (velocity.x);
 				}
 
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
+			} else {
+				hit.Equals (null);
 			}
 		}
 

@@ -34,13 +34,14 @@ public class Player : MonoBehaviour {
 
 	float lastFacingDir = 1;
 
+	public bool hasKey = false;
+	public GameObject c;
 
-	#region Foda-se
 
+	#region has
 	public bool hasGravity, hasWallJump;
-
-
 	#endregion
+	Transform otherHorizontal,otherVertical;
 
 
 	/**/
@@ -51,6 +52,12 @@ public class Player : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer> ();
 	
 	}
+
+	void OtherCollision(){
+		otherHorizontal = controller.horizontalLastHit.transform;
+		otherVertical = controller.verticalLastHit.transform;
+	}
+
 	void GravityCalculator(){
 		if (hasGravity) {
 			gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
@@ -61,16 +68,47 @@ public class Player : MonoBehaviour {
 	}
 
 	void Move(){
-		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));	
-
 		if (input.x == -1) 
 			sprite.flipX = true;
 		
 		if (input.x == 1) 
 			sprite.flipX = false;
-		
-		
+
+
+		otherVertical = controller.verticalLastHit.transform;
+		if (controller.collisions.below && otherVertical.gameObject.tag == "Triangle") {
+			Application.LoadLevel(Application.loadedLevel);
+			PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") + 1);
+			StartCoroutine(wait());
+		}
+	
+
+	
 	}
+
+
+
+
+	void LevelHandler(){
+	
+		if (Application.loadedLevel != 3) {
+			input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));	
+		}
+		else 
+			input = new Vector2 (Input.GetAxisRaw ("Horizontal") * -1 , Input.GetAxisRaw ("Vertical"));	
+
+
+		if (Application.loadedLevel == 9) {
+			hasGravity = false;
+			velocity.y = input.y * moveSpeed;
+		}
+
+		if (Input.GetKey (KeyCode.Escape)) {
+			Application.Quit();
+
+		} 
+	}
+
 	void WallJump(){
 		if(!hasWallJump){
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
@@ -103,7 +141,7 @@ public class Player : MonoBehaviour {
 
 			if (Input.GetAxis ("Vertical") >= 0) {
 				if (Input.GetAxisRaw ("Vertical") > 0) {
-					if (wallSliding) {
+					/*if (wallSliding) {
 						if (wallDirX == input.x) {
 							velocity.x = -wallDirX * wallJumpClimb.x;
 							velocity.y = wallJumpClimb.y;
@@ -114,7 +152,7 @@ public class Player : MonoBehaviour {
 							velocity.x = -wallDirX * wallLeap.x;
 							velocity.y = wallLeap.y;
 						}
-					}
+					}*/
 					if (controller.collisions.below) {
 						velocity.y = maxJumpVelocity;
 					}
@@ -155,11 +193,23 @@ public class Player : MonoBehaviour {
 
 	void Update() {
 
+		OtherCollision ();
+		LevelHandler ();
 		GravityCalculator ();
 		Move ();
 		WallJump ();
 		AnimationHandler ();
 
 	}
+
+
+
+
+
+	IEnumerator wait() 
+	{
+		yield return new WaitForSeconds(0.9f);
+		Application.LoadLevel(Application.loadedLevel);
+	} 
 
 }
