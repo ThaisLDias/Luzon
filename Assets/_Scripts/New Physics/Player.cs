@@ -35,7 +35,6 @@ public class Player : MonoBehaviour {
 	float lastFacingDir = 1;
 
 	public bool hasKey = false;
-	public GameObject c;
 
 
 	#region has
@@ -74,14 +73,45 @@ public class Player : MonoBehaviour {
 		if (input.x == 1) 
 			sprite.flipX = false;
 
-
+		otherHorizontal = controller.horizontalLastHit.transform;
 		otherVertical = controller.verticalLastHit.transform;
-		if (controller.collisions.below && otherVertical.gameObject.tag == "Triangle") {
+
+
+
+		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Triangle" || 
+			controller.collisions.left && otherHorizontal.gameObject.tag == "Triangle" || 
+			controller.collisions.below && otherVertical.gameObject.tag == "Triangle" || 
+			controller.collisions.above && otherVertical.gameObject.tag == "Triangle") {
+
 			Application.LoadLevel(Application.loadedLevel);
 			PlayerPrefs.SetInt("mortes", PlayerPrefs.GetInt("mortes") + 1);
-			StartCoroutine(wait());
+		}
+
+
+		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Key" || 
+			controller.collisions.left && otherHorizontal.gameObject.tag == "Key" || 
+			controller.collisions.below && otherVertical.gameObject.tag == "Key" || 
+			controller.collisions.above && otherVertical.gameObject.tag == "Key") {
+
+			Destroy (GameObject.Find("Key"));
+			hasKey = true;
+
+		}
+
+		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Door" || 
+			controller.collisions.left && otherHorizontal.gameObject.tag == "Door" || 
+			controller.collisions.below && otherVertical.gameObject.tag == "Door" || 
+			controller.collisions.above && otherVertical.gameObject.tag == "Door") {
+			if (hasKey) {
+				PlayerPrefs.SetInt ("lastLevel", Application.loadedLevel);
+				Application.LoadLevel ("LevelComplete");
+				PlayerPrefs.SetInt ("globalDeaths", PlayerPrefs.GetInt ("globalDeaths") + PlayerPrefs.GetInt ("mortes"));
+				PlayerPrefs.DeleteKey ("mortes");
+			}
 		}
 	
+
+
 
 	
 	}
@@ -191,25 +221,42 @@ public class Player : MonoBehaviour {
 	
 	}
 
-	void Update() {
+	void OnMouseDrag() {
+		if (Application.loadedLevel == 7) {
+			Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			gameObject.transform.position = position;
+			hasGravity = false;
+			gravity = 0;
+
+		}
+	}
+
+	void OnMouseUp(){
+		if (Application.loadedLevel == 7) {
+			hasGravity = true;
+		}
+	}
+
+
+	void FixedUpdate(){
 
 		OtherCollision ();
-		LevelHandler ();
-		GravityCalculator ();
 		Move ();
 		WallJump ();
-		AnimationHandler ();
+	}
+	void Update() {
+		LevelHandler ();
+		GravityCalculator ();
+	}
 
+	void LateUpdate(){
+		AnimationHandler ();
 	}
 
 
 
 
 
-	IEnumerator wait() 
-	{
-		yield return new WaitForSeconds(0.9f);
-		Application.LoadLevel(Application.loadedLevel);
-	} 
+
 
 }

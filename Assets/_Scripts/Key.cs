@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Key : MonoBehaviour {
 
-	Character player ;
+	Player player ;
 
 	void Start(){
 		try{
-			player = GameObject.Find("Player").GetComponent<Character>();
+			player = GameObject.Find("Player").GetComponent<Player>();
 		} catch{
 			//print("LevelPass");
 		}
@@ -20,11 +20,7 @@ public class Key : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D (Collision2D colisor)
-	{
-		if (colisor.gameObject.tag == "Player") {
-			player.hasKey = true; 
-			Destroy (gameObject);
-		} 	
-	}
+
+
+
 }
