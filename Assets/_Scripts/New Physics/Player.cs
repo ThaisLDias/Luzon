@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Diagnostics;
+using UnityEngine.UI;
+
+
 
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
@@ -34,7 +37,7 @@ public class Player : MonoBehaviour {
 
 	float lastFacingDir = 1;
 
-	public bool hasKey = false;
+	public bool hasKey;
 
 
 	#region has
@@ -43,12 +46,24 @@ public class Player : MonoBehaviour {
 	Transform otherHorizontal,otherVertical;
 
 
+
+	public Image blImage;
+
+
 	/**/
 
 	void Start() {
 		anim = GetComponent<Animator> ();
 		controller = GetComponent<Controller2D> ();
 		sprite = GetComponent<SpriteRenderer> ();
+
+
+
+		if (Application.loadedLevel != 11) {
+			hasKey = false;
+		}
+		else 
+			hasKey = true;
 	
 	}
 
@@ -88,15 +103,24 @@ public class Player : MonoBehaviour {
 		}
 
 
-		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Key" || 
-			controller.collisions.left && otherHorizontal.gameObject.tag == "Key" || 
-			controller.collisions.below && otherVertical.gameObject.tag == "Key" || 
-			controller.collisions.above && otherVertical.gameObject.tag == "Key") {
 
-			Destroy (GameObject.Find("Key"));
-			hasKey = true;
+			
 
-		}
+			if (controller.collisions.right && otherHorizontal.gameObject.tag == "Key" ||
+			    controller.collisions.left && otherHorizontal.gameObject.tag == "Key" ||
+			    controller.collisions.below && otherVertical.gameObject.tag == "Key" ||
+			    controller.collisions.above && otherVertical.gameObject.tag == "Key") {
+			if (Application.loadedLevel != 11) {
+				Destroy (GameObject.Find ("Key"));
+				hasKey = true;
+			} else {
+				blImage.enabled = true;
+			} 
+			}
+	 
+
+
+
 
 		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Door" || 
 			controller.collisions.left && otherHorizontal.gameObject.tag == "Door" || 
@@ -171,18 +195,6 @@ public class Player : MonoBehaviour {
 
 			if (Input.GetAxis ("Vertical") >= 0) {
 				if (Input.GetAxisRaw ("Vertical") > 0) {
-					/*if (wallSliding) {
-						if (wallDirX == input.x) {
-							velocity.x = -wallDirX * wallJumpClimb.x;
-							velocity.y = wallJumpClimb.y;
-						} else if (input.x == 0) {
-							velocity.x = -wallDirX * wallJumpOff.x;
-							velocity.y = wallJumpOff.y;
-						} else {
-							velocity.x = -wallDirX * wallLeap.x;
-							velocity.y = wallLeap.y;
-						}
-					}*/
 					if (controller.collisions.below) {
 						velocity.y = maxJumpVelocity;
 					}
