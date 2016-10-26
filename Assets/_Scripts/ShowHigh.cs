@@ -20,7 +20,7 @@ public class ShowHigh : MonoBehaviour {
     {
         text = GetComponent<Text>();
         txt = "Without Highscores";
-		link = "http://lpaulobos.16mb.com/getHighScore.php";
+		link = "http://lpaulobos.xyz/getHighScore.php";
 		GetScore(); 
 	}
 	public IEnumerator GetHighScore(string url)
