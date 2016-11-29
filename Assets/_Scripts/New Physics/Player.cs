@@ -40,6 +40,7 @@ public class Player : MonoBehaviour {
 	public bool hasKey;
 
 
+
 	#region has
 	public bool hasGravity, hasWallJump;
 	#endregion
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		controller = GetComponent<Controller2D> ();
 		sprite = GetComponent<SpriteRenderer> ();
-
+	
 
 
 		if (Application.loadedLevel != 11) {
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour {
 		}
 	
 
-
+	
 
 	
 	}
