@@ -9,8 +9,8 @@ public class LevelPass : MonoBehaviour {
 
 		index = PlayerPrefs.GetInt ("lastLevel") + 1;
 
-		if (index == 13) {
-			index = 14;
+		if (index == 15) {
+			index = 16;
 		}
 
 		StartCoroutine (pass());

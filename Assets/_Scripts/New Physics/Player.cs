@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
+	float moveSpeed = 3.5f;
 
 	Vector2 input;
 
@@ -39,6 +39,8 @@ public class Player : MonoBehaviour {
 
 	public bool hasKey;
 
+	public bool gravityPlataform;
+
 
 
 	#region has
@@ -57,7 +59,7 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		controller = GetComponent<Controller2D> ();
 		sprite = GetComponent<SpriteRenderer> ();
-	
+		gravityPlataform = false;
 
 
 		if (Application.loadedLevel != 11) {
@@ -136,7 +138,13 @@ public class Player : MonoBehaviour {
 		}
 	
 
-	
+		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Plataform" ||
+		    controller.collisions.left && otherHorizontal.gameObject.tag == "Plataform" ||
+		    controller.collisions.below && otherVertical.gameObject.tag == "Plataform" ||
+		    controller.collisions.above && otherVertical.gameObject.tag == "Plataform") {
+
+			gravityPlataform = true;
+		} 
 
 	
 	}
@@ -172,7 +180,7 @@ public class Player : MonoBehaviour {
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
 
 		bool wallSliding = false;
-			if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
+			/*if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0) {
 				wallSliding = true;
 
 				if (velocity.y < -wallSlideSpeedMax) {
@@ -192,7 +200,7 @@ public class Player : MonoBehaviour {
 					timeToWallUnstick = wallStickTime;
 				}
 
-		}
+		}*/
 
 			if (Input.GetAxis ("Vertical") >= 0) {
 				if (Input.GetAxisRaw ("Vertical") > 0) {
