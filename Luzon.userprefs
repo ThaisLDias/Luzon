@@ -1,9 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plataform.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\New Physics\Player.cs">
     <Files>
-      <File FileName="Assets\_Scripts\New Physics\Player.cs" Line="147" Column="5" />
-      <File FileName="Assets\Plataform.cs" Line="20" Column="5" />
+      <File FileName="Assets\_Scripts\New Physics\Player.cs" Line="112" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

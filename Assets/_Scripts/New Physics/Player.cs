@@ -107,8 +107,6 @@ public class Player : MonoBehaviour {
 
 
 
-			
-
 			if (controller.collisions.right && otherHorizontal.gameObject.tag == "Key" ||
 			    controller.collisions.left && otherHorizontal.gameObject.tag == "Key" ||
 			    controller.collisions.below && otherVertical.gameObject.tag == "Key" ||
@@ -120,9 +118,6 @@ public class Player : MonoBehaviour {
 				blImage.enabled = true;
 			} 
 			}
-	 
-
-
 
 
 		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Door" || 
@@ -139,12 +134,16 @@ public class Player : MonoBehaviour {
 	
 
 		if (controller.collisions.right && otherHorizontal.gameObject.tag == "Plataform" ||
-		    controller.collisions.left && otherHorizontal.gameObject.tag == "Plataform" ||
-		    controller.collisions.below && otherVertical.gameObject.tag == "Plataform" ||
-		    controller.collisions.above && otherVertical.gameObject.tag == "Plataform") {
-
-			gravityPlataform = true;
-		} 
+			controller.collisions.left && otherHorizontal.gameObject.tag == "Plataform" ||
+			controller.collisions.below && otherVertical.gameObject.tag == "Plataform" ||
+			controller.collisions.above && otherVertical.gameObject.tag == "Plataform") {
+			if (controller.collisions.right || controller.collisions.left) {
+				otherHorizontal.gameObject.GetComponent<Rigidbody2D> ().isKinematic = false;
+			}
+			if (controller.collisions.above || controller.collisions.below) {
+				otherVertical.gameObject.GetComponent<Rigidbody2D> ().isKinematic = false;
+			}
+		}
 
 	
 	}
