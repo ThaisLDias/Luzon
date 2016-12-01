@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Plataform.cs" />
+     <Compile Include="Assets\Sry.cs" />
      <Compile Include="Assets\_Scripts\Character.cs" />
      <Compile Include="Assets\_Scripts\Door.cs" />
      <Compile Include="Assets\_Scripts\Key.cs" />
